@@ -1,0 +1,30 @@
+"Granite Cave": {
+  "B1F": "*B1F ice puzzle solution: 2 up, right, up, left, up, right, down, right, up, right, up, right, down, right, up.",
+  "B2F": "*B2F ice puzzle solution: left, up, left, up, right, up, left, down, right, up, right, up, left, down, left, up, right, down, left, up."
+}
+  "Mirage Tower ": {
+  "**Bring Rock Smash and Mach Bike**"
+},
+"Mt. Pyre": {
+  "**Bring Mach Bike**"
+},
+"Magma Hideout ": {
+  "**Bring Strength**"
+},
+"Shoal Cave ": {
+  "**Bring Strength**"
+},
+"Seafloor Cavern ": {
+  "**Bring Strength and Rock Smash**",
+  "*Room 6 ice puzzle solution: up, 2 left, up, left, down, right, up, right, down, left, down, right, up, left, up, right, up, right, down.",
+  "*Room 7 water puzzle solution: up, Surf, left, up, 2 left, down, 2 left, up, left, left, 6 up, left, up, left, right, right.""{h268}": "{f268}",
+},
+"Safari Zone": {
+  "Area 3": "Bring Mach Bike""Area 4": "Bring Acro Bike"
+},
+"Route 130": {
+  "Grass encounters require Mirage Island to be visible."
+},
+"Victory Road": {
+  "Bring Mach Bike, Strength and Flash"
+}
