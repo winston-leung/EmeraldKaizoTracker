@@ -1,0 +1,294 @@
+[
+  {
+    "_id": "0",
+    "route": "Littleroot Town"
+  },
+  {
+    "_id": "1",
+    "route": "Oldale Town"
+  },
+  {
+    "_id": "2",
+    "route": "Route 103"
+  },
+  {
+    "_id": "3",
+    "route": "Route 102"
+  },
+  {
+    "_id": "4",
+    "route": "Petalburg City"
+  },
+  {
+    "_id": "5",
+    "route": "Route 104 (South)"
+  },
+  {
+    "_id": "6",
+    "route": "Petalburg Woods"
+  },
+  {
+    "_id": "7",
+    "route": "Route 104 (North)"
+  },
+  {
+    "_id": "8",
+    "route": "Route 115"
+  },
+  {
+    "_id": "9",
+    "route": "Route 116"
+  },
+  {
+    "_id": "10",
+    "route": "Rustboro City"
+  },
+  {
+    "_id": "11",
+    "route": "Rusturf Tunnel"
+  },
+  {
+    "_id": "12",
+    "route": "Route 106"
+  },
+  {
+    "_id": "13",
+    "route": "Route 107"
+  },
+  {
+    "_id": "14",
+    "route": "Dewford Town"
+  },
+  {
+    "_id": "15",
+    "route": "Granite Cave"
+  },
+  {
+    "_id": "16",
+    "route": "Route 109"
+  },
+  {
+    "_id": "17",
+    "route": "Slateport City"
+  },
+  {
+    "_id": "18",
+    "route": "Route 110"
+  },
+  {
+    "_id": "20",
+    "route": "Mauville City"
+  },
+  {
+    "_id": "21",
+    "route": "Route 118"
+  },
+  {
+    "_id": "22",
+    "route": "Route 117"
+  },
+  {
+    "_id": "23",
+    "route": "Verdanturf Town"
+  },
+  {
+    "_id": "24",
+    "route": "Route 111"
+  },
+  {
+    "_id": "25",
+    "route": "Route 112 (South)"
+  },
+  {
+    "_id": "26",
+    "route": "Fiery Path"
+  },
+  {
+    "_id": "27",
+    "route": "Route 112 (North)"
+  },
+  {
+    "_id": "28",
+    "route": "Route 113"
+  },
+  {
+    "_id": "29",
+    "route": "Fallarbor Town"
+  },
+  {
+    "_id": "30",
+    "route": "Route 114"
+  },
+  {
+    "_id": "31",
+    "route": "Meteor Falls"
+  },
+  {
+    "_id": "32",
+    "route": "Mt. Chimney"
+  },
+  {
+    "_id": "33",
+    "route": "Jagged Pass"
+  },
+  {
+    "_id": "34",
+    "route": "Lavaridge Town"
+  },
+  {
+    "_id": "35",
+    "route": "Mirage Tower"
+  },
+  {
+    "_id": "37",
+    "route": "Route 105"
+  },
+  {
+    "_id": "38",
+    "route": "Route 108"
+  },
+  {
+    "_id": "39",
+    "route": "Abandoned Ship"
+  },
+  {
+    "_id": "40",
+    "route": "New Mauville"
+  },
+  {
+    "_id": "41",
+    "route": "Route 119"
+  },
+  {
+    "_id": "42",
+    "route": "Weather Institute"
+  },
+  {
+    "_id": "43",
+    "route": "Fortree City"
+  },
+  {
+    "_id": "44",
+    "route": "Route 120"
+  },
+  {
+    "_id": "45",
+    "route": "Route 121"
+  },
+  {
+    "_id": "46",
+    "route": "Lilycove City"
+  },
+  {
+    "_id": "47",
+    "route": "Safari Zone"
+  },
+  {
+    "_id": "48",
+    "route": "Route 122"
+  },
+  {
+    "_id": "49",
+    "route": "Mt. Pyre"
+  },
+  {
+    "_id": "50",
+    "route": "Route 123"
+  },
+  {
+    "_id": "51",
+    "route": "Magma Hideout"
+  },
+  {
+    "_id": "52",
+    "route": "Aqua Hideout"
+  },
+  {
+    "_id": "53",
+    "route": "Route 124"
+  },
+  {
+    "_id": "54",
+    "route": "Mossdeep City"
+  },
+  {
+    "_id": "55",
+    "route": "Mossdeep Space Center"
+  },
+  {
+    "_id": "56",
+    "route": "Route 125"
+  },
+  {
+    "_id": "57",
+    "route": "Shoal Cave"
+  },
+  {
+    "_id": "58",
+    "route": "Route 126"
+  },
+  {
+    "_id": "59",
+    "route": "Route 127"
+  },
+  {
+    "_id": "60",
+    "route": "Route 128"
+  },
+  {
+    "_id": "61",
+    "route": "Seafloor Cavern"
+  },
+  {
+    "_id": "62",
+    "route": "Sootopolis City"
+  },
+  {
+    "_id": "63",
+    "route": "Cave of Origin"
+  },
+  {
+    "_id": "64",
+    "route": "Route 129"
+  },
+  {
+    "_id": "65",
+    "route": "Route 130"
+  },
+  {
+    "_id": "66",
+    "route": "Route 131"
+  },
+  {
+    "_id": "67",
+    "route": "Pacifidlog Town"
+  },
+  {
+    "_id": "68",
+    "route": "Route 132"
+  },
+  {
+    "_id": "69",
+    "route": "Route 133"
+  },
+  {
+    "_id": "70",
+    "route": "Route 134"
+  },
+  {
+    "_id": "71",
+    "route": "Sky Pillar"
+  },
+  {
+    "_id": "72",
+    "route": "Ever Grande City"
+  },
+  {
+    "_id": "73",
+    "route": "Victory Road"
+  },
+  {
+    "_id": "74",
+    "route": "Elite Four"
+  }
+]

@@ -10,6 +10,7 @@ const options = {
 
 const trainersData = require("./data/Kaizo Trainer Data.json");
 const encountersData = require("./data/Kaizo Encounters Data.json")
+const progressionData = require("./data/Kaizo Progression Data.json")
 
 const batchImport = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
@@ -19,9 +20,11 @@ const batchImport = async (req, res) => {
     console.log("connected!");
     const db = client.db("kaizo");
     const response = await db.collection("trainers").insertMany(trainersData);
-    const response2 = await db.collection("encounters").insertMany(encountersData);
     console.log(1, response);
+    const response2 = await db.collection("encounters").insertMany(encountersData);
     console.log(2, response2);
+    const response3 = await db.collection("progression").insertMany(progressionData);
+    console.log(3, response3);
 
   }
   catch (err) {

@@ -7,8 +7,6 @@ const options = {
   useUnifiedTopology: true,
 };
 
-const { routeNames } = require("./helpers")
-
 //returns a list of routes
 const getAllroutes = async (req, res) => {
   // creates a new client
@@ -20,11 +18,14 @@ const getAllroutes = async (req, res) => {
     console.log("connected!");
     // connect to the database 
     const db = client.db("kaizo");
-    const response = await db.collection("encounters").find().toArray();
+    const response = await db.collection("progression").find().toArray();
     // console.log(response)
 
-    //sort through data for route names
-    const routes = routeNames(response);
+    //filter through data for route names
+    const routes = [];
+    response.forEach((route) => {
+      routes.push(route.route)
+    })
     // console.log(routes)
 
     if (routes.length > 0) {
@@ -44,8 +45,48 @@ const getAllroutes = async (req, res) => {
   }
 }
 
+//get a route details 
+const getRouteDetails = async (req, res) => {
+  // creates a new client
+  const client = new MongoClient(MONGO_URI, options);
 
+  //get route name
+  const routeName = req.params.route;
+  // console.log(routeName)
+
+  const routeQuery = { _id: routeName };
+  const trainerQuery = { Route: routeName };
+  // console.log(routeQuery, trainerQuery)
+  try {
+    // connect to the client
+    await client.connect();
+    console.log("connected!");
+    // connect to the database 
+    const db = client.db("kaizo");
+
+    //find route encounters
+    const response = await db.collection("encounters").find(routeQuery).toArray();
+    console.log(response)
+
+    // find all trainers with route
+    const response2 = await db.collection("trainers").find(trainerQuery).toArray();
+    console.log(response2)
+
+    //check response has any data
+    //no need for response2 as there could be no trainer data in route
+
+    return res.status(200).json({ status: 200, encounters: response, trainers: response2 })
+  }
+  catch (err) {
+    console.log(err)
+  }
+  finally {
+    client.close()
+    console.log("disconnected!");
+  }
+}
 
 module.exports = {
   getAllroutes,
+  getRouteDetails,
 }

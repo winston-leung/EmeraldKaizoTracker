@@ -1,5 +1,6 @@
 [
   {
+    "_id": "Littleroot Town",
     "Littleroot Town": {
       "Grass": [],
       "Surfing": [
@@ -51,7 +52,7 @@
       ],
       "Super Rod": [
         {
-          "Pokemon": "Luvdics",
+          "Pokemon": "Luvdisc",
           "Encounter Rate": "41%",
           "Level": "65"
         },
@@ -75,6 +76,7 @@
     }
   },
   {
+    "_id": "Route 103",
     "Route 103": {
       "Grass": [
         {
@@ -188,7 +190,7 @@
       ],
       "Super Rod": [
         {
-          "Pokemon": "Quilfish",
+          "Pokemon": "Qwilfish",
           "Encounter Rate": "40%",
           "Level": "65"
         },
@@ -213,6 +215,7 @@
     }
   },
   {
+    "_id": "Oldale Town",
     "Oldale Town": {
       "Grass": [
         {
@@ -264,6 +267,7 @@
     }
   },
   {
+    "_id": "Route 102",
     "Route 102": {
       "Grass": [
         {
@@ -391,7 +395,7 @@
           "Level": "65"
         },
         {
-          "Pokemon": "Wishcash",
+          "Pokemon": "Whiscash",
           "Encounter Rate": "40%",
           "Level": "65"
         },
@@ -405,6 +409,7 @@
     }
   },
   {
+    "_id": "Petalburg City",
     "Petalburg City": {
       "Grass": [
         {
@@ -517,7 +522,7 @@
           "Level": "65"
         },
         {
-          "Pokemon": "Wishcash",
+          "Pokemon": "Whiscash",
           "Encounter Rate": "40%",
           "Level": "65"
         },
@@ -541,6 +546,7 @@
     }
   },
   {
+    "_id": "Route 104 (South)",
     "Route 104 (South)": {
       "Grass": [
         {
@@ -654,7 +660,7 @@
           "Level": "65"
         },
         {
-          "Pokemon": "Wishcash",
+          "Pokemon": "Whiscash",
           "Encounter Rate": "40%",
           "Level": "65"
         },
@@ -668,6 +674,7 @@
     }
   },
   {
+    "_id": "Petalburg Woods",
     "Petalburg Woods": {
       "Grass": [
         {
@@ -739,6 +746,7 @@
     }
   },
   {
+    "_id": "Rustboro City",
     "Rustboro City": {
       "Grass": [
         {
@@ -809,6 +817,7 @@
     }
   },
   {
+    "_id": "Route 115",
     "Route 115": {
       "Grass": [
         {
@@ -950,6 +959,7 @@
     }
   },
   {
+    "_id": "Route 116",
     "Route 116": {
       "Grass": [
         {
@@ -1022,6 +1032,7 @@
     }
   },
   {
+    "_id": "Rusturf Tunnel",
     "Rusturf Tunnel": {
       "Grass": [
         {
@@ -1087,6 +1098,7 @@
     }
   },
   {
+    "_id": "Route 106",
     "Route 106": {
       "Grass": [],
       "Surfing": [
@@ -1170,6 +1182,7 @@
     }
   },
   {
+    "_id": "Route 107",
     "Route 107": {
       "Grass": [],
       "Surfing": [
@@ -1252,6 +1265,7 @@
     }
   },
   {
+    "_id": "Dewford Town",
     "Dewford Town": {
       "Grass": [
         {
@@ -1370,6 +1384,7 @@
     }
   },
   {
+    "_id": "Granite Cave",
     "Granite Cave": {
       "1F": {
         "Grass": [
@@ -1598,6 +1613,7 @@
     }
   },
   {
+    "_id": "Route 109",
     "Route 109": {
       "Grass": [],
       "Surfing": [
@@ -1673,6 +1689,7 @@
     }
   },
   {
+    "_id": "Mauville City",
     "Mauville City": {
       "Grass": [
         {
@@ -1718,7 +1735,7 @@
           "Level": "20"
         },
         {
-          "Pokemon": "Flaafy",
+          "Pokemon": "Flaaffy",
           "Encounter Rate": "2%",
           "Level": "20"
         }
@@ -1730,6 +1747,7 @@
     }
   },
   {
+    "_id": "Route 110",
     "Route 110": {
       "Grass": [
         {
@@ -1879,6 +1897,7 @@
     }
   },
   {
+    "_id": "Route 118",
     "Route 118": {
       "Grass": [
         {
@@ -2030,6 +2049,7 @@
     }
   },
   {
+    "_id": "Slateport City",
     "Slateport City": {
       "Grass": [
         {
@@ -2078,7 +2098,7 @@
           "Level": "15"
         },
         {
-          "Pokemon": "Flaafly",
+          "Pokemon": "Flaaffy",
           "Encounter Rate": "1%",
           "Level": "15"
         }
@@ -2172,6 +2192,7 @@
     }
   },
   {
+    "_id": "Route 117",
     "Route 117": {
       "Grass": [
         {
@@ -2320,6 +2341,7 @@
     }
   },
   {
+    "_id": "Verdanturf Town",
     "Verdanturf Town": {
       "Grass": [
         {
@@ -2372,6 +2394,7 @@
     }
   },
   {
+    "_id": "Route 112 (South)",
     "Route 112 (South)": {
       "Grass": [
         {
@@ -2444,6 +2467,7 @@
     }
   },
   {
+    "_id": "Fiery Path",
     "Fiery Path": {
       "Grass": [
         {
@@ -2515,6 +2539,7 @@
     }
   },
   {
+    "_id": "Route 113",
     "Route 113": {
       "Grass": [
         {
@@ -2589,6 +2614,7 @@
     }
   },
   {
+    "_id": "Fallarbor Town",
     "Fallarbor Town": {
       "Grass": [
         {
@@ -2662,6 +2688,7 @@
     }
   },
   {
+    "_id": "Route 114",
     "Route 114": {
       "Grass": [
         {
@@ -2825,6 +2852,7 @@
     }
   },
   {
+    "_id": "Jagged Pass",
     "Jagged Pass": {
       "Grass": [
         {
@@ -2899,6 +2927,7 @@
     }
   },
   {
+    "_id": "Lavaridge Town",
     "Lavaridge Town": {
       "Grass": [
         {
@@ -2945,7 +2974,7 @@
           "Level": "36"
         },
         {
-          "Pokemon": "Charmleon",
+          "Pokemon": "Charmeleon",
           "Encounter Rate": "2%",
           "Level": "36"
         }
@@ -2964,6 +2993,7 @@
     }
   },
   {
+    "_id": "Route 111",
     "Route 111": {
       "Grass": [
         {
@@ -3099,6 +3129,7 @@
     }
   },
   {
+    "_id": "Mirage Tower",
     "Mirage Tower": {
       "1F": {
         "Grass": [
@@ -3305,9 +3336,9 @@
       "4F": {
         "Grass": [
           {
-            "Pokemon/35": "Bagon",
-            "Encounter Rate/36": "100%",
-            "Level/37": "10"
+            "Pokemon": "Bagon",
+            "Encounter Rate": "100%",
+            "Level": "10"
           }
         ],
         "Surfing": [],
@@ -3319,6 +3350,7 @@
     }
   },
   {
+    "_id": "Route 105",
     "Route 105": {
       "Grass": [],
       "Surfing": [
@@ -3405,6 +3437,7 @@
     }
   },
   {
+    "_id": "Route 108",
     "Route 108": {
       "Grass": [],
       "Surfing": [
@@ -3479,6 +3512,7 @@
     }
   },
   {
+    "_id": "Route 134",
     "Route 134": {
       "Grass": [],
       "Surfing": [
@@ -3559,6 +3593,7 @@
     }
   },
   {
+    "_id": "New Mauville",
     "New Mauville": {
       "Cave 1F": {
         "Grass": [
@@ -3717,6 +3752,7 @@
     }
   },
   {
+    "_id": "Route 119",
     "Route 119": {
       "Grass": [
         {
@@ -3884,6 +3920,7 @@
     }
   },
   {
+    "_id": "Foretree City",
     "Foretree City": {
       "Grass": [
         {
@@ -3955,6 +3992,7 @@
     }
   },
   {
+    "_id": "Route 120",
     "Route 120": {
       "Grass": [
         {
@@ -3985,7 +4023,7 @@
           "Level": "47"
         },
         {
-          "Pokemon": "Primape",
+          "Pokemon": "Primeape",
           "Encounter Rate": "10%",
           "Level": "47"
         },
@@ -4113,6 +4151,7 @@
     }
   },
   {
+    "_id": "Scorched Slab",
     "Scorched Slab": {
       "Grass": [
         {
@@ -4164,7 +4203,7 @@
           "Level": "50"
         },
         {
-          "Pokemon": "Tarkoal",
+          "Pokemon": "Torkoal",
           "Encounter Rate": "4%",
           "Level": "50"
         },
@@ -4260,6 +4299,7 @@
     }
   },
   {
+    "_id": "Route 121",
     "Route 121": {
       "Grass": [
         {
@@ -4409,6 +4449,7 @@
     }
   },
   {
+    "_id": "Lilycove City",
     "Lilycove City": {
       "Grass": [
         {
@@ -4555,6 +4596,7 @@
     }
   },
   {
+    "_id": "Safari Zone",
     "Safari Zone": {
       "Area 1": {
         "Grass": [
@@ -4667,7 +4709,7 @@
             "Level": "55"
           },
           {
-            "Pokemon": "Venasaur",
+            "Pokemon": "Venusaur",
             "Encounter Rate": "4%",
             "Level": "50"
           },
@@ -4973,6 +5015,7 @@
     }
   },
   {
+    "_id": "Route 122",
     "Route 122": {
       "Grass": [],
       "Surfing": [
@@ -5044,6 +5087,7 @@
     }
   },
   {
+    "_id": "Mt. Pyre",
     "Mt. Pyre": {
       "Tower 1F": {
         "Grass": [
@@ -5622,6 +5666,7 @@
     }
   },
   {
+    "_id": "Magma Hideout",
     "Magma Hideout": {
       "Room 1": {
         "Grass": [
@@ -6198,6 +6243,7 @@
     }
   },
   {
+    "_id": "Route 124",
     "Route 124": {
       "Grass": [],
       "Surfing": [
@@ -6308,6 +6354,7 @@
     }
   },
   {
+    "_id": "Mossdeep City",
     "Mossdeep City": {
       "Grass": [
         {
@@ -6466,6 +6513,7 @@
     }
   },
   {
+    "_id": "Route 125",
     "Route 125": {
       "Grass": [],
       "Surfing": [
@@ -6550,6 +6598,7 @@
     }
   },
   {
+    "_id": "Shoal Cave",
     "Shoal Cave": {
       "1F": {
         "Grass": [
@@ -7086,6 +7135,7 @@
     }
   },
   {
+    "_id": "Route 126",
     "Route 126": {
       "Grass": [],
       "Surfing": [
@@ -7191,6 +7241,7 @@
     }
   },
   {
+    "_id": "Sootopolis City",
     "Sootopolis City": {
       "Grass": [
         {
@@ -7296,6 +7347,7 @@
     }
   },
   {
+    "_id": "Route 127",
     "Route 127": {
       "Grass": [],
       "Surfing": [
@@ -7376,6 +7428,7 @@
     }
   },
   {
+    "_id": "Route 128",
     "Route 128": {
       "Grass": [],
       "Surfing": [
@@ -7463,6 +7516,7 @@
     }
   },
   {
+    "_id": "Seafloor Cavern",
     "Seafloor Cavern": {
       "Room 1": {
         "Grass": [],
@@ -8133,6 +8187,7 @@
     }
   },
   {
+    "_id": "Cave of Origins",
     "Cave of Origins": {
       "1F": {
         "Grass": [
@@ -8449,6 +8504,7 @@
     }
   },
   {
+    "_id": "Route 129",
     "Route 129": {
       "Grass": [],
       "Surfing": [
@@ -8537,6 +8593,7 @@
     }
   },
   {
+    "_id": "Route 130",
     "Route 130": {
       "Grass": [
         {
@@ -8693,6 +8750,7 @@
     }
   },
   {
+    "_id": "Route 131",
     "Route 131": {
       "Grass": [],
       "Surfing": [
@@ -8781,6 +8839,7 @@
     }
   },
   {
+    "_id": "Pacifidlog Town",
     "Pacifidlog Town": {
       "Grass": [],
       "Surfing": [
@@ -8873,6 +8932,7 @@
     }
   },
   {
+    "_id": "Sky Pillar",
     "Sky Pillar": {
       "1F": {
         "Grass": [
@@ -9090,6 +9150,7 @@
     }
   },
   {
+    "_id": "Meteor Falls",
     "Meteor Falls": {
       "1F": {
         "Grass": [
@@ -9687,6 +9748,7 @@
     }
   },
   {
+    "_id": "Route 132",
     "Route 132": {
       "Grass": [],
       "Surfing": [
@@ -9781,6 +9843,7 @@
     }
   },
   {
+    "_id": "Route 133",
     "Route 133": {
       "Grass": [],
       "Surfing": [
@@ -9876,6 +9939,7 @@
     }
   },
   {
+    "_id": "Route 123",
     "Route 123": {
       "Grass": [
         {
@@ -10029,6 +10093,7 @@
     }
   },
   {
+    "_id": "Ever Grande City",
     "Ever Grande City": {
       "Grass": [
         {
@@ -10158,6 +10223,7 @@
     }
   },
   {
+    "_id": "Victory Road",
     "Victory Road": {
       "1F": {
         "Grass": [
