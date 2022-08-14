@@ -15,13 +15,20 @@ const TrainerListHelper = ({ trainers }) => {
                 {trainer["Double?"] === "TRUE" && <Text>Double Battle</Text>}
                 <PokemonList>
                   {Object.keys(trainer.Pokemon).map((pokeName) => {
-                    return (
-                      <TrainerPokemonHelper mon={trainer.Pokemon[pokeName]} key={pokeName} pokeName={pokeName} />
-                    )
+                    if (pokeName) {
+                      return (
+                        <TrainerPokemonHelper mon={trainer.Pokemon[pokeName]} key={pokeName} pokeName={pokeName} />
+                      )
+                    } else {
+                      return;
+                    }
+
                   })}
                 </PokemonList>
               </TrainerWrapper>
             )
+
+
           })}
         </List>
       ) : (

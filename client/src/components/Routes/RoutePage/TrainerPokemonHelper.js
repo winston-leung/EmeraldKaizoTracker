@@ -36,7 +36,7 @@ const TrainerPokemonHelper = ({ mon, pokeName }) => {
   if (imageSrc) {
     return (
       <Wrapper>
-        <img src={imageSrc} />
+        <Image src={imageSrc} />
         <Pokemon >
           <PokeText>{`${pokeName} - Level: ${mon.Lvl}`}</PokeText>
           <PokeText>{`Nature: ${mon.Nature} - IV: ${mon.IV}`}</PokeText>
@@ -55,23 +55,33 @@ const TrainerPokemonHelper = ({ mon, pokeName }) => {
   }
 }
 
+const Image = styled.img`
+  width: 70px;
+  height: 70px;
+`
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   width: 70%;
   margin: 10px 24px;
   padding: 4px;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px rgba(6, 24, 44, 0.65) 0px 4px 6px -1px rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  border: 1px solid black;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 `
 
 const Pokemon = styled.li`
   padding: 8px;
-  font-size: 14px;
 
 `
 
 const PokeText = styled.div`
   padding: 2px 0;
+  font-size: 14px;
+  &:first-of-type {
+    font-size: 16px;
+
+  }
 `
 
 const MoveList = styled.ul`
@@ -79,6 +89,7 @@ const MoveList = styled.ul`
 `
 
 const Move = styled.li`
+  font-size: 14px;
   padding: 2px 0;
 `
 

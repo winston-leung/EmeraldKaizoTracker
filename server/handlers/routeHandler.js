@@ -66,11 +66,11 @@ const getRouteDetails = async (req, res) => {
 
     //find route encounters
     const response = await db.collection("encounters").find(routeQuery).toArray();
-    console.log(response)
+    // console.log(response)
 
     // find all trainers with route
     const response2 = await db.collection("trainers").find(trainerQuery).toArray();
-    console.log(response2)
+    // console.log(response2)
 
     //check response has any data
     //no need for response2 as there could be no trainer data in route

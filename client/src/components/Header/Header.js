@@ -1,21 +1,33 @@
+import { useAuth0 } from "@auth0/auth0-react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components"
+import LoginButton from "./Button/LoginButton";
+import LogoutButton from "./Button/LogoutButton";
 import Sidebar from "./Sidebar";
 
 
 
 const Header = () => {
-
+  const { error } = useAuth0();
 
   return (
     <Wrapper>
       <Sidebar />
-      <Title>
+      <Title to="/">
         <Logo src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" />
         <TitleText>
           Emerald Kaizo
         </TitleText>
       </Title>
-      <Button>Sign In</Button>
+      <Button>
+        {error && <p>Authentication Error</p>}
+        {!error && (
+          <>
+            <LoginButton />
+            <LogoutButton />
+          </>
+        )}
+      </Button>
     </Wrapper>
   )
 }
@@ -29,11 +41,13 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `
 
-const Title = styled.div`
+const Title = styled(NavLink)`
   position: relative;
   left: 1%;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: black;
 `
 
 const Logo = styled.img`
@@ -46,7 +60,7 @@ const TitleText = styled.h1`
     top: 10px;
 `
 
-const Button = styled.button`
+const Button = styled.div`
 
 `
 

@@ -57,14 +57,17 @@ const PokemonEncounterHelper = ({ mon }) => {
 const Wrapper = styled.div`
   padding: 10px;
   display: flex;
+  align-items: center;
   border: 1px solid black;
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  width: 80%;
+  width: 90%;
   margin: 8px 0;
 `
 
 const Image = styled.img`
   background-color: none; 
+  width: 70px;
+  height: 70px ;
 `
 
 const TextWrapper = styled.div`
@@ -72,15 +75,17 @@ const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 4px;
+  
 `
 
 const Name = styled.div`
   padding: 4px 0;
+  font-size: 16px;
 `
 
 const Text = styled.div`
   padding: 4px 0;
-
+  font-size: 14px;
 `
 
 const Warning = styled(Text)`

@@ -11,9 +11,13 @@ const RouteListPage = () => {
 
     <Wrapper>
       {state.routes.map(route => {
+        console.log(state.user.progression[route].isChecked)
         return (
           <RouteNav to={`/route/${route}`} key={route}>
             {route}
+            {state.user.progression[route].isChecked === "true" && (
+              <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" />
+            )}
           </RouteNav>
         )
       })}
@@ -27,12 +31,19 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /* justify-content: center; */
   align-items: center;
 `
 
 const RouteNav = styled(NavLink)`
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  height: 30px;
+`
 
+const Image = styled.img`
+  width: 30px;
+  height: 30px;
 `
 
 export default RouteListPage;

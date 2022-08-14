@@ -5,25 +5,9 @@ import { GuideContext } from "../Context/GuideContext";
 
 
 const Sidebar = () => {
-  const { state, actions: { handleRoutesLoad } } = useContext(GuideContext)
+  const { state } = useContext(GuideContext)
   const [drop, setDrop] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-
-  useEffect(() => {
-    fetch("/api/all-routes")
-      .then(res => res.json())
-      .then(data => {
-        // console.log(data)
-        if (data.status === 200) {
-          handleRoutesLoad(data.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    // eslint-disable-next-line
-  }, [])
 
   const handleDropdown = (e) => {
     e.preventDefault();

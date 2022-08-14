@@ -5,8 +5,9 @@ import { createContext, useReducer } from "react";
 export const GuideContext = createContext(null);
 
 const initialState = {
-  load: false,
+  load: "load",
   routes: [],
+  user: null,
 }
 
 const reducer = (state, action) => {
@@ -15,11 +16,18 @@ const reducer = (state, action) => {
     case "receive-routes":
       return {
         ...state,
-        load: true,
         routes: action.routes,
+      };
+    case "receive-user-data":
+      return {
+        ...state,
+        user: action.user,
       }
-        ;
-
+    case "load-app":
+      return {
+        ...state,
+        load: "idle",
+      }
     default:
       throw new Error(`Unrecognized action: ${action.type}`);
   }
@@ -35,6 +43,18 @@ export const GuideContextProvider = ({ children }) => {
     })
   }
 
+  const handleUserLoad = (data) => {
+    dispatch({
+      type: "receive-user-data",
+      user: data,
+    })
+  }
+
+  const handleLoad = () => {
+    dispatch({
+      type: "load-app",
+    })
+  }
 
   return (
     <GuideContext.Provider
@@ -42,6 +62,8 @@ export const GuideContextProvider = ({ children }) => {
         state,
         actions: {
           handleRoutesLoad,
+          handleUserLoad,
+          handleLoad,
         }
       }}>
       {children}

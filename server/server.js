@@ -8,6 +8,8 @@ const {
   getRouteDetails,
 } = require("./handlers/routeHandler")
 
+const { getUser } = require("./handlers/userHandler")
+
 express()
   .use(function (req, res, next) {
     res.header(
@@ -31,6 +33,9 @@ express()
   //Get all routes
   .get("/api/all-routes", getAllroutes)
   .get("/api/route/:route", getRouteDetails)
+
+  //get user data
+  .get("/api/user/:email", getUser)
 
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
