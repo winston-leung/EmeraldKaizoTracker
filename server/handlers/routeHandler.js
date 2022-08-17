@@ -29,6 +29,9 @@ const getAllroutes = async (req, res) => {
       if (route?.imageSrc) {
         imageSrc.push(route.imageSrc)
       }
+      else {
+        imageSrc.push(null)
+      }
     })
     // console.log(routes)
 
