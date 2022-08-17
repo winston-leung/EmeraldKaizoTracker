@@ -4,6 +4,8 @@ import styled from "styled-components";
 const TrainerPokemonHelper = ({ mon, pokeName }) => {
   const [imageSrc, setImageSrc] = useState(null);
 
+  //fetch pokemon id with name 
+  //store id inside sprite url
   useEffect(() => {
     if (pokeName) {
       let pokemon = pokeName.toLowerCase();
@@ -36,26 +38,24 @@ const TrainerPokemonHelper = ({ mon, pokeName }) => {
     // eslint-disable-next-line
   }, [])
 
-  if (imageSrc) {
-    return (
-      <Wrapper>
-        <Image src={imageSrc} />
-        <Pokemon >
-          <PokeText>{`${pokeName} - Level: ${mon.Lvl}`}</PokeText>
-          <PokeText>{`Nature: ${mon.Nature} - IV: ${mon.IV}`}</PokeText>
-          <PokeText>{`Held Item: ${mon.Item}`}</PokeText>
+  return (
+    <Wrapper>
+      <Image src={imageSrc} />
+      <Pokemon >
+        <PokeText>{`${pokeName} - Level: ${mon.Lvl}`}</PokeText>
+        <PokeText>{`Nature: ${mon.Nature} - IV: ${mon.IV}`}</PokeText>
+        <PokeText>{`Held Item: ${mon.Item}`}</PokeText>
 
-          <MoveList>
-            <Move>{`Move 1: ${mon["Move 1"]}`}</Move>
-            <Move>{`Move 2: ${mon["Move 2"]}`}</Move>
-            <Move>{`Move 3: ${mon["Move 3"]}`}</Move>
-            <Move>{`Move 4: ${mon["Move 4"]}`}</Move>
-          </MoveList>
-        </Pokemon>
-      </Wrapper>
+        <MoveList>
+          <Move>{`Move 1: ${mon["Move 1"]}`}</Move>
+          <Move>{`Move 2: ${mon["Move 2"]}`}</Move>
+          <Move>{`Move 3: ${mon["Move 3"]}`}</Move>
+          <Move>{`Move 4: ${mon["Move 4"]}`}</Move>
+        </MoveList>
+      </Pokemon>
+    </Wrapper>
 
-    )
-  }
+  )
 }
 
 const Image = styled.img`

@@ -28,12 +28,14 @@ const RoutePage = () => {
     }
   } = useContext(RouteContext);
 
+  //get fetch route details
   useEffect(() => {
     const timeout = setTimeout(() => handleLoad(true), 1000);
     fetch(`/api/route/${routeName}`)
       .then(res => res.json())
       .then(data => {
 
+        //store route name, encounters and trainers in route context
         if (data.status === 200) {
           handleRouteLoad(routeName)
           handleEncountersLoad(data.encounters[0]);
@@ -43,6 +45,7 @@ const RoutePage = () => {
       })
       .catch(err => console.log(err))
 
+    //clear all data stored
     return (() => {
       clearTimeout(timeout);
       handleEncountersLoad([]);
@@ -53,7 +56,6 @@ const RoutePage = () => {
     // eslint-disable-next-line
   }, [useParams().route])
 
-  console.log(state.routeSrcs[routeIndex])
   return (
     <Wrapper>
       <LoadingScreen hidden={stateRoute.load} />
@@ -64,11 +66,17 @@ const RoutePage = () => {
       />
       <RouteName>
         {routeName}
+
+        {/* show pokeball if user has caught a pokemon for this route */}
         {state.user?.progression[routeName].pokemon && (
           <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" />
         )}
+
+        {/* show pokeball if user has completed this route */}
         {state.user?.progression[routeName].isChecked && <Check />}
       </RouteName>
+
+      {/* show user's caught pokemon or this route */}
       {state.user?.progression[routeName].pokemon && (
         <Caught>
           {`Caught ${state.user.progression[routeName].pokemon.name}`}
@@ -76,7 +84,10 @@ const RoutePage = () => {
         </Caught>
       )
       }
+
+      {/* show route image if available */}
       {state.routeSrcs[routeIndex] && <RouteImage routeIndex={routeIndex} />}
+
       <TabBar>
         <TabButton
           id="encounters"
@@ -97,32 +108,36 @@ const RoutePage = () => {
           </div>
         </TabButton>
       </TabBar>
+
       <Content>
         {stateRoute.activeTab === "encounters" && (
           <WrapperTab className={stateRoute.activeTab === "encounters" ? "visible" : ""}>
+
+            {/* checking if route has any encounters */}
             {(stateRoute.encounters?._id) ? (
+
+              //checking if route has floors 
               Object.keys(stateRoute.encounters[stateRoute.encounters._id]).includes("Grass") ?
                 (
                   <PokemonListHelper encounters={stateRoute.encounters[stateRoute.encounters._id]} floor={stateRoute.selectedPokemon.floor} />
                 ) : (
                   Object.keys(stateRoute.encounters[stateRoute.encounters._id]).map(floor => {
-                    if (floor !== "Hint") {
-                      return (
-                        <FloorWrapper
-                          key={floor}
-                        >
-                          <Floor>{floor}</Floor>
-                          <PokemonListHelper encounters={stateRoute.encounters[stateRoute.encounters._id][floor]} floor={floor} />
-                        </FloorWrapper>
-                      )
-                    }
-                    else {
-                      return (
-                        <Hint key={floor}>
-                          {`(Hint: ${stateRoute.encounters[stateRoute.encounters._id][floor]})`}
-                        </Hint>
-                      )
-                    }
+
+                    //check route has a hint
+                    if (floor === "Hint") return (
+                      <Hint key={floor}>
+                        {`(Hint: ${stateRoute.encounters[stateRoute.encounters._id][floor]})`}
+                      </Hint>)
+
+                    return (
+                      <FloorWrapper
+                        key={floor}
+                      >
+                        <Floor>{floor}</Floor>
+                        <PokemonListHelper encounters={stateRoute.encounters[stateRoute.encounters._id][floor]} floor={floor} />
+                      </FloorWrapper>
+                    )
+
                   })
                 )
 
@@ -130,8 +145,11 @@ const RoutePage = () => {
             ) : (
               <Warning>NO ENCOUNTERS</Warning>
             )}
+            {/* check submit error  */}
             {stateRoute.error === "select" && (<Warning>Select A Pokemon!</Warning>)}
             {stateRoute.error === "caught" && (<Warning>Already Caught A Pokemon</Warning>)}
+
+            {/* only show if user is signed in */}
             {state.user?.email ? (
               stateRoute.encounters?._id && <Button type="button" onClick={handleSelectSubmit} id="pokemon">Submit Pokemon</Button>
             ) : (
@@ -141,12 +159,17 @@ const RoutePage = () => {
 
         )
         }
+
         <WrapperTab className={stateRoute.activeTab === "trainers" ? "visible" : ""}>
           <TrainerListHelper trainers={stateRoute.trainers} />
         </WrapperTab>
 
       </Content>
+
+      {/* check submit error  */}
       {stateRoute.error === "route" && (<Warning>Route Already Completed</Warning>)}
+
+      {/* only show if user is signed in */}
       {state.user?.email ? (
         <Button type="button" onClick={handleSelectSubmit} id="route">Complete Route</Button>
       ) : (

@@ -16,9 +16,13 @@ const RouteListPage = () => {
         return (
           <RouteNav to={`/route/${route}`} key={route}>
             {route}
+
+            {/* show pokeball if user has caught a pokemon for this route */}
             {state.user.progression[route]?.pokemon && (
               <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" />
             )}
+
+            {/* show pokeball if user has completed this route */}
             {state.user.progression[route]?.isChecked && (<Check />)}
           </RouteNav>
         )

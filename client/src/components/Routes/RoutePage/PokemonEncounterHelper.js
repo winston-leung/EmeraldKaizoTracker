@@ -11,6 +11,7 @@ const PokemonEncounterHelper = ({ mon, floor, type }) => {
 
   const { stateRoute, actions: { handlePokeSelect } } = useContext(RouteContext);
 
+  //fetch pokemon id with its name
   useEffect(() => {
     if (mon?.Pokemon) {
       let pokemon = mon.Pokemon.toLowerCase();
@@ -47,6 +48,7 @@ const PokemonEncounterHelper = ({ mon, floor, type }) => {
     // eslint-disable-next-line
   }, [])
 
+  //handle selecting pokemon to be caught for route
   const handlePokeClick = (e) => {
     const selectedPokemon = {
       id: e.currentTarget.id,

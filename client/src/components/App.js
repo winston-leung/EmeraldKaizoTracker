@@ -23,6 +23,7 @@ const App = () => {
 
   const { user, isLoading } = useAuth0();
 
+  //get fetch user data
   useEffect(() => {
     if (user?.email) {
       fetch(`/api/user/${user.email}`)
@@ -53,6 +54,7 @@ const App = () => {
     // eslint-disable-next-line
   }, [state.load, user])
 
+  //get fetch route list & image src
   useEffect(() => {
     fetch("/api/all-routes")
       .then(res => res.json())

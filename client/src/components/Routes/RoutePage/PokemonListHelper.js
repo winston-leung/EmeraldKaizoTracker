@@ -5,40 +5,41 @@ const PokemonListHelper = ({ encounters, floor }) => {
 
   return (
     <Wrapper>
-      {
-        Object.keys(encounters).map((type) => {
+      {Object.keys(encounters).map((type) => {
 
-          if (type === "Hint") {
-            return (
-              <Hint key={type}>
-                {`(Hint: ${encounters[type]})`}
-              </Hint>
-            )
-          }
-
-          if (!encounters[type].length > 0) return null;
-
+        //return if type key is a hint
+        if (type === "Hint") {
           return (
-            <LocationWrapper
-              key={type}
-            >
-              <Location>{type}</Location>
-              <PokemonList>
-                {encounters[type].map((mon) => {
-                  return (
-                    <Pokemon key={mon.Pokemon}>
-                      <PokemonEncounterHelper
-                        mon={mon}
-                        floor={floor}
-                        type={type}
-                      />
-                    </Pokemon>
-                  )
-                })}
-              </PokemonList>
-            </LocationWrapper >
+            <Hint key={type}>
+              {`(Hint: ${encounters[type]})`}
+            </Hint>
           )
-        })
+        }
+
+        //return nothing if theres to enoucnter types
+        if (!encounters[type].length > 0) return null;
+
+        return (
+          <LocationWrapper
+            key={type}
+          >
+            <Location>{type}</Location>
+            <PokemonList>
+              {encounters[type].map((mon) => {
+                return (
+                  <Pokemon key={mon.Pokemon}>
+                    <PokemonEncounterHelper
+                      mon={mon}
+                      floor={floor}
+                      type={type}
+                    />
+                  </Pokemon>
+                )
+              })}
+            </PokemonList>
+          </LocationWrapper >
+        )
+      })
       }
 
     </Wrapper >

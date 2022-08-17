@@ -9,11 +9,12 @@ const RouteImage = ({ routeIndex }) => {
   const [visibility, setVisibilty] = useState(false);
   const { state } = useContext(GuideContext);
 
-
+  //close image when changing url
   useEffect(() => {
     setVisibilty(false)
   }, [routeIndex])
 
+  //handle toggle of image visibily
   const handleImageButtonClick = (e) => {
     e.preventDefault();
     setVisibilty(!visibility)

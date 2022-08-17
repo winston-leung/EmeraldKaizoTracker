@@ -2,7 +2,6 @@ import { css } from "styled-components";
 
 const button = css`
 	font-size: 14px;
-	/* outline: 2px solid black; */
 	font-family: var(--font);
 	cursor: pointer;
 	background-color: rgb(192, 192, 192, 0.4);

@@ -74,15 +74,16 @@ export const RouteContextProvider = ({ children }) => {
 
   const { state, actions: { handleReload } } = useContext(GuideContext)
 
+
+  //handle route reload
   const handleLoad = (boolean) => {
     dispatch({
       type: "load-route",
       load: boolean
     })
-
-
   }
 
+  //handle saving route name
   const handleRouteLoad = (name) => {
     dispatch({
       type: "receive-route",
@@ -90,6 +91,7 @@ export const RouteContextProvider = ({ children }) => {
     })
   }
 
+  //handle route trainers
   const handleTrainersLoad = (data) => {
     dispatch({
       type: "receive-trainers",
@@ -97,6 +99,7 @@ export const RouteContextProvider = ({ children }) => {
     })
   }
 
+  // handle route encounters
   const handleEncountersLoad = (data) => {
     dispatch({
       type: "receive-encounters",
@@ -104,6 +107,7 @@ export const RouteContextProvider = ({ children }) => {
     })
   }
 
+  // handle switching between encounter and trainer tabs
   const handleTabClick = (e) => {
     if (stateRoute.activeTab !== e.currentTarget.id) {
       dispatch({
@@ -113,6 +117,7 @@ export const RouteContextProvider = ({ children }) => {
     }
   }
 
+  //handle selection of caught pokemon
   const handlePokeSelect = (data) => {
     dispatch({
       type: "select-pokemon",
@@ -120,6 +125,7 @@ export const RouteContextProvider = ({ children }) => {
     })
   }
 
+  //handle error
   const handleSelectError = (error) => {
     dispatch({
       type: "select-error",
@@ -127,6 +133,7 @@ export const RouteContextProvider = ({ children }) => {
     })
   }
 
+  //handle snackbar message
   const handleSnackbarOpen = (boolean, message) => {
     dispatch({
       type: "open-close-snackbar",
@@ -136,16 +143,20 @@ export const RouteContextProvider = ({ children }) => {
 
   }
 
+  //handle submit for pokemon caught or route completion
   const handleSelectSubmit = (e) => {
     e.preventDefault();
 
+    //reset if there was ana error before
     if (stateRoute.error) {
       handleSelectError(null);
     }
+
     const newProgression = {
       ...state.user.progression,
     }
 
+    //check submition is for caught or completion
     switch (e.target.id) {
       case "pokemon":
         if (stateRoute.selectedPokemon.id) {
@@ -162,6 +173,7 @@ export const RouteContextProvider = ({ children }) => {
         break;
     }
 
+    //patch fetch new progression
     fetch(`/api/progression/${state.user.email}`, {
       method: 'PATCH',
       headers: {

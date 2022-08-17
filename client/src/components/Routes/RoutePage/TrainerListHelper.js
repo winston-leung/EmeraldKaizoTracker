@@ -6,6 +6,7 @@ const TrainerListHelper = ({ trainers }) => {
 
   return (
     <Wrapper>
+      {/* check route has any trainers */}
       {trainers.length > 0 ? (
         <List>
           {trainers.map((trainer) => {
@@ -15,6 +16,7 @@ const TrainerListHelper = ({ trainers }) => {
                 {trainer["Double?"] === "TRUE" && <Text>**Double Battle**</Text>}
                 <PokemonList>
                   {Object.keys(trainer.Pokemon).map((pokeName) => {
+
                     if (!pokeName) return null;
 
                     return (

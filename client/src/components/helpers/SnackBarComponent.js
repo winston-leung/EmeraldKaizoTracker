@@ -3,7 +3,7 @@ import { IoIosClose } from "react-icons/io";
 import styled from "styled-components";
 
 const SnackbarComponent = ({ message, snackbarOpen, setSnackbarOpen }) => {
-  // close snackbar
+  // handle close snackbar
   const handleCloseSnackbar = (ev, reason) => {
     setSnackbarOpen(false);
   };
@@ -24,10 +24,9 @@ const SnackbarComponent = ({ message, snackbarOpen, setSnackbarOpen }) => {
   )
 };
 
-
 const Button = styled.button`
 background: none;
 border: none;
-`;
+`
 
 export default SnackbarComponent;

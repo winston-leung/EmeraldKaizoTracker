@@ -20,6 +20,8 @@ const Header = () => {
         </TitleText>
       </Title>
       <Button>
+        {/* check Auth0 login has an error */}
+
         {error && <p>Authentication Error</p>}
         {!error && (
           <>

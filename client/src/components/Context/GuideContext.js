@@ -1,8 +1,6 @@
 import { createContext, useReducer } from "react";
 import { userData } from "../helpers/userConstructer";
 
-
-
 export const GuideContext = createContext(null);
 
 const initialState = {
@@ -53,6 +51,7 @@ const reducer = (state, action) => {
 export const GuideContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  //handle receiving routes list and their image src
   const handleRoutesLoad = (data) => {
     dispatch({
       type: "receive-routes-&-src",
@@ -61,6 +60,7 @@ export const GuideContextProvider = ({ children }) => {
     })
   }
 
+  //handle user login
   const handleUserLoad = (data) => {
     dispatch({
       type: "receive-user-data",
@@ -68,13 +68,14 @@ export const GuideContextProvider = ({ children }) => {
     })
   }
 
+  //initial load rerender for receiving route data
   const handleLoad = () => {
     dispatch({
       type: "load-app",
     })
   }
 
-
+  //handle any request for rerender
   const handleReload = () => {
     dispatch({
       type: "reload",

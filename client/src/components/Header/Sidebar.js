@@ -5,27 +5,32 @@ import { GuideContext } from "../Context/GuideContext";
 import { FaCheck } from "react-icons/fa";
 import { smallbutton } from "../helpers/buttoncss";
 
+//sidebar hamburger dropdown for routes
 const Sidebar = () => {
   const { state } = useContext(GuideContext)
   const [drop, setDrop] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  //handle toggle of the routes list dropdown
   const handleDropdown = (e) => {
     e.preventDefault();
     e.stopPropagation()
     setDrop(!drop);
   }
 
+  //handle toggle of navbar
   const handleSidebarOpen = (e) => {
     e.preventDefault();
     setSidebarOpen(!sidebarOpen);
   }
 
+  //close navbar when going to new url
   const handleNavClick = () => {
     setDrop(false);
     setSidebarOpen(false);
   }
 
+  //handle close navbar when clicking outise of it
   const handleOutsideClick = (e) => {
     e.preventDefault();
     setDrop(false);
@@ -34,32 +39,37 @@ const Sidebar = () => {
 
   return (
     <Wrapper>
+      {/* fullscreen div for clicking outside of navbar and hamburger */}
       <OutsideWrapper onClick={handleOutsideClick} className={sidebarOpen ? "" : "hidden"} />
+
       <HamburgerWrapper onClick={handleSidebarOpen}>
         <Line className={sidebarOpen ? "a" : ""} />
         <Line className={sidebarOpen ? "b" : ""} />
         <Line className={sidebarOpen ? "c" : ""} />
       </HamburgerWrapper>
+
       <NavBar className={sidebarOpen ? "slide" : ""} onClick={handleNavClick}>
         <Nav to="/" className="top">Home</Nav>
-        <Nav to="/map" onClick={handleNavClick} className="big">Map</Nav>
+        <Nav to="/map" className="big">Map</Nav>
         <RoutesWrapper>
-          <Nav to="/routes" onClick={handleNavClick} className="big">Routes</Nav>
+          <Nav to="/routes" className="big">Routes</Nav>
+
           <RoutesDropButton onClick={handleDropdown}>
             <Arrow className={drop ? "active" : ""} />
           </RoutesDropButton>
+
         </RoutesWrapper>
+
         <RoutesDrop className={drop ? "active" : ""}>
           {state.routes.map((route) => {
-            if (route.includes(" ")) {
-              route.replace(" ", "%20")
-            }
             return (
               <RouteItem key={route}>
-                <RouteNav to={`/route/${route}`} onClick={handleNavClick}>{route}</RouteNav>
+                <RouteNav to={`/route/${route}`} >{route}</RouteNav>
+                {/* show pokeball if user has caught a pokemon for this route */}
                 {state.user.progression[route]?.pokemon && (
                   <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" />
                 )}
+                {/* show pokeball if user has completed this route */}
                 {state.user.progression[route]?.isChecked && <Check />}
               </RouteItem>
             )
@@ -68,7 +78,6 @@ const Sidebar = () => {
         <Nav to="/download" className="big">Download</Nav>
         <Nav to="/faq" className="big">FAQ</Nav>
         <Nav to="/nuzlocke" className="bottom">Nuzlocke</Nav>
-
       </NavBar>
     </Wrapper >
   )
@@ -184,12 +193,10 @@ const NavBar = styled.div`
 
 const Nav = styled(NavLink)`
   ${smallbutton};
-  text-decoration: none;
   color: black;
   padding: 8px 4px;
   margin: 1px 8px;
   font-size: 16px;
-  font-family: var(--font);
   text-align: start;
   &.top {
     margin-top: 8px;
