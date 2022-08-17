@@ -29,7 +29,7 @@ const PokemonEncounterHelper = ({ mon, floor, type }) => {
         case "farfetch'd":
           pokemon = "farfetchd"
           break;
-        case "":
+        case "null":
           return;
         default:
           break;
