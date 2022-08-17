@@ -1,3 +1,14 @@
+import { RouteContextProvider } from "./RouteContext";
 import RoutePage from "./RoutePage";
 
-export default RoutePage;
+const index = () => {
+
+
+  return (
+    <RouteContextProvider>
+      <RoutePage />
+    </RouteContextProvider>
+  )
+}
+
+export default index;

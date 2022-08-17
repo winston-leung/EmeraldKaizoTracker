@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { userData } from "../helpers/userConstructer";
 
 
 
@@ -7,16 +8,19 @@ export const GuideContext = createContext(null);
 const initialState = {
   load: "load",
   routes: [],
-  user: null,
+  routeSrcs: [],
+  user: new userData(""),
+  reload: false
 }
 
 const reducer = (state, action) => {
   // console.log(action)
   switch (action.type) {
-    case "receive-routes":
+    case "receive-routes-&-src":
       return {
         ...state,
         routes: action.routes,
+        routeSrcs: action.routeSrcs
       };
     case "receive-user-data":
       return {
@@ -28,6 +32,19 @@ const reducer = (state, action) => {
         ...state,
         load: "idle",
       }
+    case "update-progression":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          progression: action.progression
+        }
+      }
+    case "reload":
+      return {
+        ...state,
+        reload: !state.reload
+      }
     default:
       throw new Error(`Unrecognized action: ${action.type}`);
   }
@@ -38,8 +55,9 @@ export const GuideContextProvider = ({ children }) => {
 
   const handleRoutesLoad = (data) => {
     dispatch({
-      type: "receive-routes",
-      routes: data,
+      type: "receive-routes-&-src",
+      routes: data.data,
+      routeSrcs: data.src
     })
   }
 
@@ -56,6 +74,13 @@ export const GuideContextProvider = ({ children }) => {
     })
   }
 
+
+  const handleReload = () => {
+    dispatch({
+      type: "reload",
+    })
+  }
+
   return (
     <GuideContext.Provider
       value={{
@@ -64,6 +89,7 @@ export const GuideContextProvider = ({ children }) => {
           handleRoutesLoad,
           handleUserLoad,
           handleLoad,
+          handleReload,
         }
       }}>
       {children}

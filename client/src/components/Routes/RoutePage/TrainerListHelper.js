@@ -12,17 +12,14 @@ const TrainerListHelper = ({ trainers }) => {
             return (
               <TrainerWrapper key={trainer._id}>
                 <Name>{`Trainer: ${trainer.Trainer}`}</Name>
-                {trainer["Double?"] === "TRUE" && <Text>Double Battle</Text>}
+                {trainer["Double?"] === "TRUE" && <Text>**Double Battle**</Text>}
                 <PokemonList>
                   {Object.keys(trainer.Pokemon).map((pokeName) => {
-                    if (pokeName) {
-                      return (
-                        <TrainerPokemonHelper mon={trainer.Pokemon[pokeName]} key={pokeName} pokeName={pokeName} />
-                      )
-                    } else {
-                      return;
-                    }
+                    if (!pokeName) return null;
 
+                    return (
+                      <TrainerPokemonHelper mon={trainer.Pokemon[pokeName]} key={pokeName} pokeName={pokeName} />
+                    )
                   })}
                 </PokemonList>
               </TrainerWrapper>
@@ -32,13 +29,21 @@ const TrainerListHelper = ({ trainers }) => {
           })}
         </List>
       ) : (
-        <Name>No trainers</Name>
+        <Warning>NO TRAINERS</Warning>
       )}
     </Wrapper>
   )
 }
 
+const Warning = styled.div`
+  height: 100%;
+  align-self: center;
+  padding: 24px;
+`
+
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `
 
 const List = styled.ul`
@@ -57,12 +62,13 @@ const Name = styled.div`
 `
 
 const Text = styled.div`
-
+  padding: 4px 0;
+  color: red;
 `
 
 const PokemonList = styled.ul`
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+  flex-wrap: wrap;
 `
 
 

@@ -28,8 +28,6 @@ const batchImport = async (req, res) => {
     console.log(3, response3);
     const response4 = await db.collection("users").insertMany(users);
     console.log(4, response4);
-
-
   }
   catch (err) {
     console.log(err)

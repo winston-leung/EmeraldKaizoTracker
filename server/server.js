@@ -8,7 +8,9 @@ const {
   getRouteDetails,
 } = require("./handlers/routeHandler")
 
-const { getUser } = require("./handlers/userHandler")
+const { getUser, postUser } = require("./handlers/userHandler")
+
+const { patchProgression } = require('./handlers/progressionHandler');
 
 express()
   .use(function (req, res, next) {
@@ -37,5 +39,10 @@ express()
   //get user data
   .get("/api/user/:email", getUser)
 
+  //update user progression
+  .patch("/api/progression/:email", patchProgression)
+
+  //create user
+  .post("/api/user/:email", postUser)
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));

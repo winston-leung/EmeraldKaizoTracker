@@ -1,46 +1,48 @@
 import PokemonEncounterHelper from "./PokemonEncounterHelper";
 import styled from "styled-components";
-import { useState } from "react";
 
-const PokemonListHelper = ({ encounters }) => {
+const PokemonListHelper = ({ encounters, floor }) => {
 
   return (
     <Wrapper>
       {
         Object.keys(encounters).map((type) => {
-          if (type !== "Hint") {
-            if (encounters[type].length > 0) {
-              return (
-                <LocationWrapper key={type}>
 
-                  <Location>{type}</Location>
-                  <PokemonList>
-                    {encounters[type].map((mon) => {
-                      return (
-                        <Pokemon key={mon.Pokemon}>
-                          <PokemonEncounterHelper mon={mon} />
-                        </Pokemon>
-                      )
-                    })}
-                  </PokemonList>
-                </LocationWrapper >
-              )
-            } else return
-
-          }
-          else {
+          if (type === "Hint") {
             return (
               <Hint key={type}>
                 {`(Hint: ${encounters[type]})`}
               </Hint>
             )
           }
+
+          if (!encounters[type].length > 0) return null;
+
+          return (
+            <LocationWrapper
+              key={type}
+            >
+              <Location>{type}</Location>
+              <PokemonList>
+                {encounters[type].map((mon) => {
+                  return (
+                    <Pokemon key={mon.Pokemon}>
+                      <PokemonEncounterHelper
+                        mon={mon}
+                        floor={floor}
+                        type={type}
+                      />
+                    </Pokemon>
+                  )
+                })}
+              </PokemonList>
+            </LocationWrapper >
+          )
         })
       }
-    </Wrapper>
+
+    </Wrapper >
   )
-
-
 }
 
 const Wrapper = styled.div`
@@ -53,6 +55,7 @@ const Wrapper = styled.div`
 const LocationWrapper = styled.div`
   padding: 4px 0;
   order: 3;
+  /* border: 1px solid black; */
 `
 
 const Location = styled.div`
@@ -62,18 +65,22 @@ const Location = styled.div`
 `
 
 const PokemonList = styled.ul`
-  display: block;
-  width: 100%;
-  column-count: 2;
-  column-gap: 0;
+  display: flex;
+  flex-wrap: wrap;
+
 `
 
 const Pokemon = styled.li`
-overflow: hidden;
+  width: 600px;
+  padding: 2px 0;
+  flex-wrap: wrap;
+  display: flex;
 `
 
 const Hint = styled(LocationWrapper)`
   order: 0;
 `
+
+
 
 export default PokemonListHelper;

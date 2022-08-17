@@ -1,294 +1,407 @@
 [
   {
     "_id": "0",
-    "route": "Littleroot Town"
+    "route": "Littleroot Town",
+    "imageSrc": "https://i.imgur.com/8D7inXc.png"
   },
   {
     "_id": "1",
-    "route": "Oldale Town"
+    "route": "Oldale Town",
+    "imageSrc": "https://i.imgur.com/WzxkzFo.png"
   },
   {
     "_id": "2",
-    "route": "Route 103"
+    "route": "Route 103",
+    "imageSrc": "https://i.imgur.com/mGFrQlq.png"
   },
   {
     "_id": "3",
-    "route": "Route 102"
+    "route": "Route 102",
+    "imageSrc": "https://i.imgur.com/h2PyLBj.png"
   },
   {
     "_id": "4",
-    "route": "Petalburg City"
+    "route": "Petalburg City",
+    "imageSrc": "https://i.imgur.com/6mh6vLJ.png"
   },
   {
     "_id": "5",
-    "route": "Route 104 (South)"
+    "route": "Route 104 (South)",
+    "imageSrc": "https://i.imgur.com/4pXGpe0.png"
   },
   {
     "_id": "6",
-    "route": "Petalburg Woods"
+    "route": "Petalburg Woods",
+    "imageSrc": ""
   },
   {
     "_id": "7",
-    "route": "Route 104 (North)"
+    "route": "Route 104 (North)",
+    "imageSrc": "https://i.imgur.com/4pXGpe0.png"
   },
   {
     "_id": "8",
-    "route": "Route 115"
+    "route": "Route 115",
+    "imageSrc": "https://i.imgur.com/FoPZDx3.png"
   },
   {
     "_id": "9",
-    "route": "Route 116"
+    "route": "Route 116",
+    "imageSrc": "https://i.imgur.com/unsMvsc.png"
   },
   {
     "_id": "10",
-    "route": "Rustboro City"
+    "route": "Rustboro City",
+    "imageSrc": "https://i.imgur.com/mHrrxJt.png"
+  },
+  {
+    "_id": "75",
+    "route": "Rustboro Gym",
+    "imageSrc": "https://i.imgur.com/7n1WZRH.png"
   },
   {
     "_id": "11",
-    "route": "Rusturf Tunnel"
+    "route": "Rusturf Tunnel",
+    "imageSrc": ""
   },
   {
     "_id": "12",
-    "route": "Route 106"
+    "route": "Route 106",
+    "imageSrc": "https://i.imgur.com/smNuLBj.png"
   },
   {
     "_id": "13",
-    "route": "Route 107"
+    "route": "Route 107",
+    "imageSrc": "https://i.imgur.com/PY09oSt.png"
   },
   {
     "_id": "14",
-    "route": "Dewford Town"
+    "route": "Dewford Town",
+    "imageSrc": "https://i.imgur.com/7gYz6mM.png"
+  },
+  {
+    "_id": "76",
+    "route": "Dewford Gym",
+    "imageSrc": "https://i.imgur.com/ataSYJV.png"
   },
   {
     "_id": "15",
-    "route": "Granite Cave"
+    "route": "Granite Cave",
+    "imageSrc": ""
   },
   {
     "_id": "16",
-    "route": "Route 109"
+    "route": "Route 109",
+    "imageSrc": "https://i.imgur.com/uAJK9n9.png"
   },
   {
     "_id": "17",
-    "route": "Slateport City"
+    "route": "Slateport City",
+    "imageSrc": "https://i.imgur.com/l0XyvBx.png"
   },
   {
     "_id": "18",
-    "route": "Route 110"
+    "route": "Route 110",
+    "imageSrc": "https://i.imgur.com/m3Heux8.png"
   },
   {
     "_id": "20",
-    "route": "Mauville City"
+    "route": "Mauville City",
+    "imageSrc": "https://i.imgur.com/o4rhNGn.png"
+  },
+  {
+    "_id": "77",
+    "route": "Mauville Gym",
+    "imageSrc": "https://i.imgur.com/zgMgrDa.png"
   },
   {
     "_id": "21",
-    "route": "Route 118"
+    "route": "Route 118",
+    "imageSrc": "https://i.imgur.com/B3RrdqG.png"
   },
   {
     "_id": "22",
-    "route": "Route 117"
+    "route": "Route 117",
+    "imageSrc": "https://i.imgur.com/uand2Zt.png"
   },
   {
     "_id": "23",
-    "route": "Verdanturf Town"
+    "route": "Verdanturf Town",
+    "imageSrc": "https://i.imgur.com/xtGiBgX.png"
   },
   {
     "_id": "24",
-    "route": "Route 111"
+    "route": "Route 111",
+    "imageSrc": "https://i.imgur.com/g6QujYC.png"
   },
   {
     "_id": "25",
-    "route": "Route 112 (South)"
+    "route": "Route 112 (South)",
+    "imageSrc": "https://i.imgur.com/pPbScrk.png"
   },
   {
     "_id": "26",
-    "route": "Fiery Path"
+    "route": "Fiery Path",
+    "imageSrc": ""
   },
   {
     "_id": "27",
-    "route": "Route 112 (North)"
+    "route": "Route 112 (North)",
+    "imageSrc": "https://i.imgur.com/pPbScrk.png"
   },
   {
     "_id": "28",
-    "route": "Route 113"
+    "route": "Route 113",
+    "imageSrc": "https://i.imgur.com/DbZ6ncl.png"
   },
   {
     "_id": "29",
-    "route": "Fallarbor Town"
+    "route": "Fallarbor Town",
+    "imageSrc": "https://i.imgur.com/GFaKmUd.png"
   },
   {
     "_id": "30",
-    "route": "Route 114"
+    "route": "Route 114",
+    "imageSrc": "https://i.imgur.com/KZEtjIC.png"
   },
   {
     "_id": "31",
-    "route": "Meteor Falls"
+    "route": "Meteor Falls",
+    "imageSrc": ""
   },
   {
     "_id": "32",
-    "route": "Mt. Chimney"
+    "route": "Mt. Chimney",
+    "imageSrc": ""
   },
   {
     "_id": "33",
-    "route": "Jagged Pass"
+    "route": "Jagged Pass",
+    "imageSrc": ""
   },
   {
     "_id": "34",
-    "route": "Lavaridge Town"
+    "route": "Lavaridge Town",
+    "imageSrc": "https://i.imgur.com/cG7ZCb6.png"
+  },
+  {
+    "_id": "78",
+    "route": "Lavaridge Gym",
+    "imageSrc": "https://i.imgur.com/0ShzlSu.png"
   },
   {
     "_id": "35",
-    "route": "Mirage Tower"
+    "route": "Mirage Tower",
+    "imageSrc": ""
+  },
+  {
+    "_id": "79",
+    "route": "Petalburg Gym",
+    "imageSrc": "https://i.imgur.com/NIYA71r.png"
   },
   {
     "_id": "37",
-    "route": "Route 105"
+    "route": "Route 105",
+    "imageSrc": "https://i.imgur.com/pvcMwpl.png"
   },
   {
     "_id": "38",
-    "route": "Route 108"
+    "route": "Route 108",
+    "imageSrc": "https://i.imgur.com/N5DPsuE.png"
   },
   {
     "_id": "39",
-    "route": "Abandoned Ship"
+    "route": "Abandoned Ship",
+    "imageSrc": ""
   },
   {
     "_id": "40",
-    "route": "New Mauville"
+    "route": "New Mauville",
+    "imageSrc": ""
   },
   {
     "_id": "41",
-    "route": "Route 119"
+    "route": "Route 119",
+    "imageSrc": "https://i.imgur.com/oJC98yS.png"
   },
   {
     "_id": "42",
-    "route": "Weather Institute"
+    "route": "Weather Institute",
+    "imageSrc": ""
   },
   {
     "_id": "43",
-    "route": "Fortree City"
+    "route": "Fortree City",
+    "imageSrc": "https://i.imgur.com/6qhs96Z.png"
+  },
+  {
+    "_id": "80",
+    "route": "Fortree Gym",
+    "imageSrc": "https://i.imgur.com/07rbofz.png"
   },
   {
     "_id": "44",
-    "route": "Route 120"
+    "route": "Route 120",
+    "imageSrc": "https://i.imgur.com/3uE1XDk.png"
   },
   {
     "_id": "45",
-    "route": "Route 121"
+    "route": "Route 121",
+    "imageSrc": "https://i.imgur.com/gk0Snme.png"
   },
   {
     "_id": "46",
-    "route": "Lilycove City"
+    "route": "Lilycove City",
+    "imageSrc": "https://i.imgur.com/LQyLKeu.png"
   },
   {
     "_id": "47",
-    "route": "Safari Zone"
+    "route": "Safari Zone",
+    "imageSrc": ""
   },
   {
     "_id": "48",
-    "route": "Route 122"
+    "route": "Route 122",
+    "imageSrc": "https://i.imgur.com/m1zyxqV.png"
   },
   {
     "_id": "49",
-    "route": "Mt. Pyre"
+    "route": "Mt. Pyre",
+    "imageSrc": ""
   },
   {
     "_id": "50",
-    "route": "Route 123"
+    "route": "Route 123",
+    "imageSrc": "https://i.imgur.com/agqKz5S.png"
   },
   {
     "_id": "51",
-    "route": "Magma Hideout"
+    "route": "Magma Hideout",
+    "imageSrc": ""
   },
   {
     "_id": "52",
-    "route": "Aqua Hideout"
+    "route": "Aqua Hideout",
+    "imageSrc": ""
   },
   {
     "_id": "53",
-    "route": "Route 124"
+    "route": "Route 124",
+    "imageSrc": "https://i.imgur.com/vSaO6fS.png"
   },
   {
     "_id": "54",
-    "route": "Mossdeep City"
+    "route": "Mossdeep City",
+    "imageSrc": "https://i.imgur.com/juwa8tf.png"
+  },
+  {
+    "_id": "81",
+    "route": "Mossdeep Gym",
+    "imageSrc": "https://i.imgur.com/IZXYE63.png"
   },
   {
     "_id": "55",
-    "route": "Mossdeep Space Center"
+    "route": "Mossdeep Space Center",
+    "imageSrc": ""
   },
   {
     "_id": "56",
-    "route": "Route 125"
+    "route": "Route 125",
+    "imageSrc": "https://i.imgur.com/zBMAvw0.png"
   },
   {
     "_id": "57",
-    "route": "Shoal Cave"
+    "route": "Shoal Cave",
+    "imageSrc": ""
   },
   {
     "_id": "58",
-    "route": "Route 126"
+    "route": "Route 126",
+    "imageSrc": "https://i.imgur.com/K5Q7AK1.png"
   },
   {
     "_id": "59",
-    "route": "Route 127"
+    "route": "Route 127",
+    "imageSrc": "https://i.imgur.com/1FCHmAl.png"
   },
   {
     "_id": "60",
-    "route": "Route 128"
+    "route": "Route 128",
+    "imageSrc": "https://i.imgur.com/apsv2G1.png"
   },
   {
     "_id": "61",
-    "route": "Seafloor Cavern"
+    "route": "Seafloor Cavern",
+    "imageSrc": ""
   },
   {
     "_id": "62",
-    "route": "Sootopolis City"
+    "route": "Sootopolis City",
+    "imageSrc": "https://i.imgur.com/tlKQfJH.png"
   },
   {
     "_id": "63",
-    "route": "Cave of Origin"
+    "route": "Cave of Origins",
+    "imageSrc": ""
   },
   {
     "_id": "64",
-    "route": "Route 129"
+    "route": "Route 129",
+    "imageSrc": "https://i.imgur.com/HADrElL.png"
   },
   {
     "_id": "65",
-    "route": "Route 130"
+    "route": "Route 130",
+    "imageSrc": "https://i.imgur.com/6d2r58R.png"
   },
   {
     "_id": "66",
-    "route": "Route 131"
+    "route": "Route 131",
+    "imageSrc": "https://i.imgur.com/GjPcksE.png"
   },
   {
     "_id": "67",
-    "route": "Pacifidlog Town"
+    "route": "Pacifidlog Town",
+    "imageSrc": "https://i.imgur.com/WMu2GrB.png"
   },
   {
     "_id": "68",
-    "route": "Route 132"
+    "route": "Route 132",
+    "imageSrc": "https://i.imgur.com/EyfCZat.png"
   },
   {
     "_id": "69",
-    "route": "Route 133"
+    "route": "Route 133",
+    "imageSrc": "https://i.imgur.com/UqkODqK.png"
   },
   {
     "_id": "70",
-    "route": "Route 134"
+    "route": "Route 134",
+    "imageSrc": "https://i.imgur.com/QXx6Klu.png"
   },
   {
     "_id": "71",
-    "route": "Sky Pillar"
+    "route": "Sky Pillar",
+    "imageSrc": ""
+  },
+  {
+    "_id": "82",
+    "route": "Sootopolis Gym",
+    "imageSrc": "https://i.imgur.com/obebPTR.png"
   },
   {
     "_id": "72",
-    "route": "Ever Grande City"
+    "route": "Ever Grande City",
+    "imageSrc": "https://i.imgur.com/pPxPMlh.png"
   },
   {
     "_id": "73",
-    "route": "Victory Road"
+    "route": "Victory Road",
+    "imageSrc": ""
   },
   {
     "_id": "74",
-    "route": "Elite Four"
+    "route": "Elite Four",
+    "imageSrc": ""
   }
 ]

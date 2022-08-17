@@ -23,13 +23,17 @@ const getAllroutes = async (req, res) => {
 
     //filter through data for route names
     const routes = [];
+    const imageSrc = []
     response.forEach((route) => {
       routes.push(route.route)
+      if (route?.imageSrc) {
+        imageSrc.push(route.imageSrc)
+      }
     })
     // console.log(routes)
 
     if (routes.length > 0) {
-      return res.status(200).json({ status: 200, data: routes })
+      return res.status(200).json({ status: 200, data: routes, src: imageSrc })
     }
     else {
       return res.status(404).json({ status: 404, message: "No Routes Found" })

@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { GuideContext } from "../../Context/GuideContext";
+import { FaCheck } from "react-icons/fa";
+import { smallbutton } from "../../helpers/buttoncss";
 
 const RouteListPage = () => {
 
@@ -11,19 +13,23 @@ const RouteListPage = () => {
 
     <Wrapper>
       {state.routes.map(route => {
-        console.log(state.user.progression[route].isChecked)
         return (
           <RouteNav to={`/route/${route}`} key={route}>
             {route}
-            {state.user.progression[route].isChecked === "true" && (
+            {state.user.progression[route]?.pokemon && (
               <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" />
             )}
+            {state.user.progression[route]?.isChecked && (<Check />)}
           </RouteNav>
         )
       })}
     </Wrapper>
   )
 }
+
+const Check = styled(FaCheck)`
+  padding: 0 8px;
+`
 
 const Wrapper = styled.div`
   padding: var(--page-padding);
@@ -35,10 +41,13 @@ const Wrapper = styled.div`
 `
 
 const RouteNav = styled(NavLink)`
-  padding: 4px 0;
+  ${smallbutton}
+  padding: 4px 8px;
+  margin: 4px 0;
   display: flex;
   align-items: center;
-  height: 30px;
+  text-decoration: none;
+  color: black
 `
 
 const Image = styled.img`

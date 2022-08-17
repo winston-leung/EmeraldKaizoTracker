@@ -8,6 +8,7 @@ export default createGlobalStyle`
 		--header-height: 100px;
 		--font: 'Press Start 2P', cursive;
 		--page-padding: 0 24px;
+		--color-dark-emerald: #105E26
 	}
 
 	/* http://meyerweb.com/eric/tools/css/reset/ 
@@ -59,5 +60,4 @@ export default createGlobalStyle`
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-
 `

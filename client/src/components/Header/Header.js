@@ -39,6 +39,8 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
+  z-index: 10;
 `
 
 const Title = styled(NavLink)`
@@ -55,7 +57,7 @@ const Logo = styled.img`
 `
 const TitleText = styled.h1`
     font-size: 24px;
-    text-shadow: 2px 2px 6px #105E26;
+    text-shadow: 2px 2px 6px var(--color-dark-emerald);
     position: relative;
     top: 10px;
 `

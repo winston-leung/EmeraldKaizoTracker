@@ -1,121 +1,199 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { GuideContext } from "../../Context/GuideContext";
 import PokemonListHelper from "./PokemonListHelper";
+import { RouteContext } from "./RouteContext";
 import TrainerListHelper from "./TrainerListHelper";
+import { FaCheck } from "react-icons/fa";
+import SnackbarComponent from "../../helpers/SnackBarComponent";
+import LoadingScreen from "../../helpers/LoadingScreen";
+import { smallbutton, tabbutton } from "../../helpers/buttoncss";
+import RouteImage from "./RouteImage";
 
 const RoutePage = () => {
   const routeName = useParams().route;
-  const [encounters, setEncounters] = useState(null);
-  const [trainers, setTrainers] = useState(null);
-  const [activeTab, setActiveTab] = useState("encounters")
-  const [load, setLoad] = useState(false)
   const { state } = useContext(GuideContext);
+  const routeIndex = state.routes.indexOf(routeName)
+  const {
+    stateRoute,
+    actions: {
+      handleLoad,
+      handleRouteLoad,
+      handleTrainersLoad,
+      handleEncountersLoad,
+      handleTabClick,
+      handleSelectSubmit,
+      handleSnackbarOpen,
+    }
+  } = useContext(RouteContext);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setLoad(true), 500);
+    const timeout = setTimeout(() => handleLoad(true), 1000);
     fetch(`/api/route/${routeName}`)
       .then(res => res.json())
       .then(data => {
-        // console.log(data)
+
         if (data.status === 200) {
-          setEncounters(data.encounters);
-          setTrainers(data.trainers);
+          handleRouteLoad(routeName)
+          handleEncountersLoad(data.encounters[0]);
+          handleTrainersLoad(data.trainers);
+
         }
       })
       .catch(err => console.log(err))
 
     return (() => {
       clearTimeout(timeout);
-      setLoad(false);
-      setEncounters([]);
-      setTrainers([]);
+      handleEncountersLoad([]);
+      handleTrainersLoad([]);
+      handleLoad(false);
+      window.scrollTo(0, 0);
     })
     // eslint-disable-next-line
   }, [useParams().route])
 
-  const handleTabClick = (e) => {
-    if (activeTab !== e.currentTarget.id) {
-      setActiveTab(e.currentTarget.id)
-    }
-  }
-
-  if (load && encounters) {
-    return (
-      <Wrapper>
-        <RouteName>
-          {routeName}
-          {state.user?.progression && state.user.progression[routeName].isChecked && (
-            <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" />
-          )}
-        </RouteName>
-        <TabBar>
-          <TabButton
-            id="encounters"
-            onClick={handleTabClick}
-            className={activeTab === "encounters" ? "active" : ""}
-          >
-            <div>
-              Encounters
-            </div>
-          </TabButton>
-          <TabButton
-            id="trainers"
-            onClick={handleTabClick}
-            className={activeTab === "trainers" ? "active" : ""}
-          >
-            <div>
-              Trainers
-            </div>
-          </TabButton>
-        </TabBar>
-        <Content>
-          {activeTab === "encounters" && (
-            (encounters[0]?._id) ? (
-
-              (Object.keys(encounters[0][encounters[0]._id]).includes("Grass") ?
+  console.log(state.routeSrcs[routeIndex])
+  return (
+    <Wrapper>
+      <LoadingScreen hidden={stateRoute.load} />
+      <SnackbarComponent
+        message={stateRoute.snackbarMessage}
+        snackbarOpen={stateRoute.snackbarOpen}
+        setSnackbarOpen={handleSnackbarOpen}
+      />
+      <RouteName>
+        {routeName}
+        {state.user?.progression[routeName].pokemon && (
+          <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" />
+        )}
+        {state.user?.progression[routeName].isChecked && <Check />}
+      </RouteName>
+      {state.user?.progression[routeName].pokemon && (
+        <Caught>
+          {`Caught ${state.user.progression[routeName].pokemon.name}`}
+          <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/${state.user.progression[routeName].pokemon.id}.png`} />
+        </Caught>
+      )
+      }
+      {state.routeSrcs[routeIndex] && <RouteImage routeIndex={routeIndex} />}
+      <TabBar>
+        <TabButton
+          id="encounters"
+          onClick={handleTabClick}
+          className={stateRoute.activeTab === "encounters" ? "active" : ""}
+        >
+          <div>
+            Encounters
+          </div>
+        </TabButton>
+        <TabButton
+          id="trainers"
+          onClick={handleTabClick}
+          className={stateRoute.activeTab === "trainers" ? "active" : ""}
+        >
+          <div>
+            Trainers
+          </div>
+        </TabButton>
+      </TabBar>
+      <Content>
+        {stateRoute.activeTab === "encounters" && (
+          <WrapperTab className={stateRoute.activeTab === "encounters" ? "visible" : ""}>
+            {(stateRoute.encounters?._id) ? (
+              Object.keys(stateRoute.encounters[stateRoute.encounters._id]).includes("Grass") ?
                 (
-                  <PokemonListHelper encounters={encounters[0][encounters[0]._id]} />
+                  <PokemonListHelper encounters={stateRoute.encounters[stateRoute.encounters._id]} floor={stateRoute.selectedPokemon.floor} />
                 ) : (
-                  Object.keys(encounters[0][encounters[0]._id]).map(floor => {
+                  Object.keys(stateRoute.encounters[stateRoute.encounters._id]).map(floor => {
                     if (floor !== "Hint") {
                       return (
-                        <FloorWrapper key={floor}>
+                        <FloorWrapper
+                          key={floor}
+                        >
                           <Floor>{floor}</Floor>
-                          <PokemonListHelper encounters={encounters[0][encounters[0]._id][floor]} />
+                          <PokemonListHelper encounters={stateRoute.encounters[stateRoute.encounters._id][floor]} floor={floor} />
                         </FloorWrapper>
                       )
                     }
                     else {
                       return (
                         <Hint key={floor}>
-                          {`(Hint: ${encounters[0][encounters[0]._id][floor]})`}
+                          {`(Hint: ${stateRoute.encounters[stateRoute.encounters._id][floor]})`}
                         </Hint>
                       )
                     }
                   })
                 )
-              )
+
+
             ) : (
               <Warning>NO ENCOUNTERS</Warning>
-            )
+            )}
+            {stateRoute.error === "select" && (<Warning>Select A Pokemon!</Warning>)}
+            {stateRoute.error === "caught" && (<Warning>Already Caught A Pokemon</Warning>)}
+            {state.user?.email ? (
+              stateRoute.encounters?._id && <Button type="button" onClick={handleSelectSubmit} id="pokemon">Submit Pokemon</Button>
+            ) : (
+              <Warning>Sign in to submit caught Pokemon</Warning>
+            )}
+          </WrapperTab>
 
-          )
+        )
+        }
+        <WrapperTab className={stateRoute.activeTab === "trainers" ? "visible" : ""}>
+          <TrainerListHelper trainers={stateRoute.trainers} />
+        </WrapperTab>
 
-          }
-          {activeTab === "trainers" &&
-            <TrainerListHelper trainers={trainers} />
-          }
-        </Content>
-      </Wrapper >
-    )
-  }
-  else {
-    <div>HELP</div>
-  }
-
+      </Content>
+      {stateRoute.error === "route" && (<Warning>Route Already Completed</Warning>)}
+      {state.user?.email ? (
+        <Button type="button" onClick={handleSelectSubmit} id="route">Complete Route</Button>
+      ) : (
+        <Warning> Sign in to complete route</Warning>
+      )
+      }
+      <ArrowWrapper>
+        <Arrow to={`/route/${state.routes[(routeIndex - 1)]}`} className={routeIndex > 0 ? "" : "hidden"}>Previous Route</Arrow>
+        <Arrow to={`/route/${state.routes[(routeIndex + 1)]}`} className={routeIndex < state.routes.length ? "" : "hidden"}>Next Route</Arrow>
+      </ArrowWrapper>
+    </Wrapper >
+  )
 }
+
+const ArrowWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  order: 10;
+`
+
+const Arrow = styled(NavLink)`
+  ${smallbutton};
+  padding: 4px 8px;
+  text-decoration: none;
+  color: black;
+  &.hidden {
+    visibility: hidden;
+  }
+`
+
+const Check = styled(FaCheck)`
+  padding: 0 8px;
+`
+
+const WrapperTab = styled.div`
+  display: none;
+  &.visible {
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+const Caught = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const Image = styled.img`
   width: 40px;
@@ -133,37 +211,26 @@ const RouteName = styled.div`
 const Wrapper = styled.div`
   font-family: var(--font);
   padding: var(--page-padding);
+  display: flex;
+  flex-direction: column;
   `
 
 const TabBar = styled.div`
   display: flex;
-  width: 100%;
+  width: calc(100% - var(--page-padding));
   justify-content: center;
+  padding: 8px 0;
   `
 
 const TabButton = styled.div`
-  width: 50%;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;  
-  border-bottom: 1px solid rgb(128, 128, 128, 0.5);
-  cursor: pointer;
-  text-shadow: 2px 2px 6px #105E26;
-  transition: all 0.2s ease-in-out;
-  &.active {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  }
-  &:hover {
-    font-size: 18px;
-    text-shadow: 4px 4px 12px #105E26;
-  }
+  ${tabbutton}
   `
 
 const Warning = styled.div`
   height: 100%;
   align-self: center;
   padding: 24px;
+  order: 5;
 `
 
 const Content = styled.div`
@@ -171,6 +238,7 @@ const Content = styled.div`
   flex-direction: column;
   align-self: center;
   min-height: 500px;
+  width: calc(100% - var(--page-padding));
   `
 
 const FloorWrapper = styled.div`
@@ -186,6 +254,15 @@ const Floor = styled.div`
 
 const Hint = styled(FloorWrapper)`
   order: 1;
+`
+
+const Button = styled.button`
+  order: 6;
+  ${smallbutton}
+  align-self: center;
+  padding: 8px 16px;
+  margin: 10px 0;
+
 `
 
 export default RoutePage;

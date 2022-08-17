@@ -18,6 +18,8 @@ const TrainerPokemonHelper = ({ mon, pokeName }) => {
         case "mr. mime":
           pokemon = "mr-mime"
           break;
+        case "":
+          return;
         default:
           break;
       }
@@ -31,6 +33,7 @@ const TrainerPokemonHelper = ({ mon, pokeName }) => {
     } else {
       console.log(mon)
     }
+    // eslint-disable-next-line
   }, [])
 
   if (imageSrc) {
@@ -63,7 +66,7 @@ const Image = styled.img`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 550px;
   margin: 10px 24px;
   padding: 4px;
   border: 1px solid black;

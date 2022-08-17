@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { RouteContext } from "./RouteContext";
 
 
 
-const PokemonEncounterHelper = ({ mon }) => {
-  const [imageSrc, setImageSrc] = useState(null);
+const PokemonEncounterHelper = ({ mon, floor, type }) => {
+  const [pokeId, setPokeId] = useState(null);
+  const floorData = floor;
+  const typeData = type;
+
+  const { stateRoute, actions: { handlePokeSelect } } = useContext(RouteContext);
 
   useEffect(() => {
     if (mon?.Pokemon) {
@@ -23,6 +28,8 @@ const PokemonEncounterHelper = ({ mon }) => {
         case "farfetch'd":
           pokemon = "farfetchd"
           break;
+        case "":
+          return;
         default:
           break;
       }
@@ -30,28 +37,45 @@ const PokemonEncounterHelper = ({ mon }) => {
       fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
         .then(res => res.json())
         .then(data => {
-          setImageSrc(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/${data.id}.png`)
+          setPokeId(data.id)
+
         })
         .catch(err => console.log(err))
     } else {
       console.log(mon)
     }
-
+    // eslint-disable-next-line
   }, [])
 
-  if (imageSrc) {
-    return (
-      <Wrapper>
-        <Image src={imageSrc} />
-        <TextWrapper>
-          <Name>{`${mon.Pokemon}`}</Name>
-          <Text>{`Level: ${mon.Level}`}</Text>
-          <Text>{`Encounter Rate: ${mon["Encounter Rate"]}`}</Text>
-          {mon?.Warning && (<Warning>{`Warning: ${mon.Warning}`}</Warning>)}
-        </TextWrapper>
-      </Wrapper>
-    )
+  const handlePokeClick = (e) => {
+    const selectedPokemon = {
+      id: e.currentTarget.id,
+      type: typeData,
+      floor: floorData,
+      name: e.currentTarget.getAttribute("name")
+    }
+    handlePokeSelect(selectedPokemon);
   }
+
+  return (
+    <Wrapper
+      id={pokeId}
+      name={mon.Pokemon}
+      onClick={handlePokeClick}
+      className={
+        (pokeId === Number(stateRoute.selectedPokemon.id)
+          && floorData === stateRoute.selectedPokemon.floor
+          && typeData === stateRoute.selectedPokemon.type)
+        && "active"}>
+      <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/${pokeId}.png`} />
+      <TextWrapper>
+        <Name>{`${mon.Pokemon}`}</Name>
+        <Text>{`Level: ${mon.Level}`}</Text>
+        <Text>{`Encounter Rate: ${mon["Encounter Rate"]}`}</Text>
+        {mon?.Warning && (<Warning>{`Warning: ${mon.Warning}`}</Warning>)}
+      </TextWrapper>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`
@@ -61,7 +85,16 @@ const Wrapper = styled.div`
   border: 1px solid black;
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   width: 90%;
-  margin: 8px 0;
+  margin: 8px auto;
+  transition: all 125ms ease-in-out;
+  cursor: pointer;
+  border-radius: 8px;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &.active {
+    outline: 8px solid var(--color-dark-emerald);
+  }
 `
 
 const Image = styled.img`
@@ -75,10 +108,10 @@ const TextWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 4px;
-  
+  flex-wrap: nowrap;
 `
 
-const Name = styled.div`
+const Name = styled.label`
   padding: 4px 0;
   font-size: 16px;
 `
