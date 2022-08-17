@@ -20,6 +20,9 @@ const TrainerPokemonHelper = ({ mon, pokeName }) => {
         case "mr. mime":
           pokemon = "mr-mime"
           break;
+        case "farfetch'd":
+          pokemon = "farfetchd"
+          break;
         case "null":
           return;
         default:

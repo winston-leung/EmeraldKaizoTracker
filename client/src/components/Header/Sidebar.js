@@ -194,10 +194,12 @@ const NavBar = styled.div`
 const Nav = styled(NavLink)`
   ${smallbutton};
   color: black;
+  text-decoration: none;
   padding: 8px 4px;
   margin: 1px 8px;
   font-size: 16px;
   text-align: start;
+  tex
   &.top {
     margin-top: 8px;
   }

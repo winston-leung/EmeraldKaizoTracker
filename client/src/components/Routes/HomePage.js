@@ -22,8 +22,8 @@ const HomePage = () => {
 }
 
 const Image = styled.img`
-  width: 30%;
-  height: 30%;
+  width: 20%;
+  height: 20%;
 `
 
 const Wrapper = styled.div`
